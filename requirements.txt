@@ -3,3 +3,4 @@ pandas
 matplotlib
 Image
 sklearn
+xlrd<2.0
