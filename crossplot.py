@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.neighbors import KNeighborsRegressor
 import matplotlib.pyplot as plt
+import xlrd
 from PIL import Image
 
 def main():
@@ -11,6 +12,8 @@ def main():
         st.image(img, width=200)
     with col2:
         st.title("Porosity calculation Using Neutron-Density Crossplot")
+    xlrd.xlsx.ensure_elementtree_imported(False,None)
+    xlrd.xlsx.Element_has_iter=True
     df=pd.read_excel(r"CNL_1pt1.xlsx")
     X=df.iloc[:,:2]
     Y=df["PHIT_ND"]
