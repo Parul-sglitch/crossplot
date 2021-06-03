@@ -7,11 +7,11 @@ from PIL import Image
 def main():
     col1,col2=st.beta_columns([1,2])
     with col1:
-        img = Image.open("C:/Users/PARUL KUMARI/Desktop/project/rig.jpeg")
+        img = Image.open("rig.jpeg")
         st.image(img, width=200)
     with col2:
         st.title("Porosity calculation Using Neutron-Density Crossplot")
-    df=pd.read_excel(r"C:/Users/PARUL KUMARI/Downloads/CNL_1pt1.xlsx")
+    df=pd.read_excel(r"CNL_1pt1.xlsx")
     X=df.iloc[:,:2]
     Y=df["PHIT_ND"]
     knn1=KNeighborsRegressor(n_neighbors=3)
@@ -19,7 +19,7 @@ def main():
     st.subheader("Select the type of your file:")
     s=st.radio("",('CSV','Excel'))
     st.subheader("NOTE: Data file should contain the following columns shown for your guidance!!")
-    sample=pd.read_excel(r"C:/Users/PARUL KUMARI/Downloads/Sample_data.xlsx")
+    sample=pd.read_excel(r"Sample_data.xlsx")
     st.write(sample)
     if s=='Excel':
         file=st.file_uploader("Upload the file here: ")
